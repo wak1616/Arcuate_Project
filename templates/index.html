@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/static/bootswatch.css" rel="stylesheet">
+        <title>De Rojas AI Calculator</title>
+    </head>
+    <body>
+        <h1>De Rojas Arcuate Incision Calculator</h1>
+        <h4>Please enter patient details and parameters below, then click submit</h4>
+        <form id = "patient_data">
+            <div>
+            <input type="text" id="ID" placeholder="Patient ID">
+            </div>
+            
+            <div>
+            <input type="date" id="DOS" placeholder="Date of Surgery">
+            </div>
+
+            <div>
+            <label for="right_eye">Right Eye</label>
+            <input type="radio" id="right_eye" name="eye" value="right">
+            <label for="left_eye">Left Eye</label>
+            <input type="radio" id="left_eye" name="eye" value="left">
+            </div>
+            
+            <div>
+            <input type="number" id="corneal_astigmatism" placeholder="Corneal Astigmatism">
+            </div>
+
+            <div>
+            <input type="number" id="steep_axis" placeholder="Location of Steep Axis (in degrees)">
+            </div>
+            
+            <div>
+            <button type="submit">Submit</button>
+            </div>
+
+        </form>
+
+        <canvas id="my_canvas" width="400" height="400"></canvas>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
