@@ -4,7 +4,7 @@
     width: auto; /* Optional: Ensures the image does not exceed the width of its container */
 }
 
-.main{
+.background{
     width: 100%;
     background: linear-gradient(to top, rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('/static/leo.JPG');
     background-position: center;
@@ -12,10 +12,35 @@
     height: 109vh;
 }
 
-.page-header {
-    padding: 2rem;
-    font-size: 3rem;
+.inputarea {
+    display: inline-block;
+    width: 100%;
+    max-width: 200px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #f7f7f9;
+    background-clip: padding-box;
+    border: 0 solid var(--bs-border-color);
+    border-radius: 0;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
 
+.alignleft{
+    text-align: left;
+    padding-left: 20px;  /* Adds space on the left outside the form */
+}
 
+.text-block {
+    display: inline-block;
+    background-color: #333333;
+    padding: 1rem 1rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 465px;
 }

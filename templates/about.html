@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  About
+{% endblock %}
+
+{% block main %}
+    <h1 class="py-2">About De Rojas AI Calc</h1>
+
+    <p>Arcuate incisions of the cornea (aka arcuate keratotomies) are used in ophthalmic surgery to treat astigmatism during cataract surgery 
+      and lens exchange procedures. They are a powerful tool, but there is little medical consensus on how to
+      best employ them, how to create them (via a femtosecond laser? manual blades?), or how to fine-tune them
+      for specific levels of astigmatism and/or patient biometrics or demographics.  The author Joaquin De Rojas, MD (creator of this website) 
+      has extensive experience in employing these "arcuate keratotomies" to improve visual outcomes for his patients</p>
+
+    <p> There have been multiple published models or "nomograms" to help guide surgeons in how to best make these
+      incisions (i.e. how long do you make them? how far from the center of the cornea? How deep?) There are links to these 
+      prior published models under "Links" in the navigation bar at the top of the webage.
+    </p>
+
+    <p> The current nomogram (De Rojas AI Calc) has been developed using insights gained from the Donnenfeld limbal relaxing
+      incisions nomogram as well as the Wortz-Gupta Calculator (both available online).  In addition, it has been tweaked by the author Dr. De Rojas
+      to help predict his real world results.  The nomogram does make a series of assumptions that are as follows: 
+      <ul>
+        <li> The ALLY® Adaptive Cataract Treatment System (LensAR, Inc)is used to make laser arcuate incisions </li>
+        <li> Arcuate incisions are made at 80% depth </li>
+        <li> Arcuate incisions are made at at 4.5mm radius (9.0mm diamter) from the visual center </li>
+        <li> All acruate incisions were opened at the time of surgery with a BSS irrigation cannula</li>
+        <li> Low levels of astigmatism (.3) will not be treated and higher levels of astigmatism (>1.25) will not be
+          treated with arcuates (because the author believes such high amounts of astigmatism are best treated with toric lenses instead)</li>
+        <li> "Against-the-rule astigmatism" (i.e. steep axis at 180 degrees) will be treated more aggressively that "With-the-rule
+          astigmatism" (i.e. steep axis at 090 degrees).</li>
+        <li> Surgically induced astigmatism (SIA) from the surgeon's main incision will be minimal</li>
+      </ul>
+    </p>
+    <p>  
+      The hope of the author is to create future versions of this nomogram that will leverage even larger data sets and artificial 
+      intelligence to further increase its accuracy.
+    </p>
+
+    <p> DISCLAIMER: IN IT'S CURRENT FORM, THIS WEBSITE/NOMOGRAM IS ONLY INTENDED FOR EDUCATIONAL PURPOSES AND TO FULFULL A FINAL
+      PROJECT REQUIREMENT FOR A COMPUTER SCIENCE COURSE: <a href="https://cs50.harvard.edu/x/2024/">CS50's Introduction to Computer Science</a> . 
+      IT IS NOT INTENDED FOR REAL PATIENT USE OR TO GUIDE SURGICAL CORRECTION OF ASTIGMATISM IN HUMANS OR ANIMALS.
+    </p>
+
+    <p> Please feel free to email the author with any questions or concerns: <a href="mailto:joaquin.derojas@gmail.com">joaquin.derojas@gmail.com</a></p>
+
+{% endblock %}

@@ -1,9 +1,31 @@
 
+document.getElementById('patient_data').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Get values from the form
+    let age = document.getElementById('age').value;
+    let eye = document.querySelector('input[name="eye"]:checked').value;
+    let corneal_astigmatism = document.getElementById('corneal_astigmatism').value;
+    let steep_axis = document.getElementById('steep_axis').value;
+
+    // Store form values in the dataset for use when the image loads
+    document.getElementById('patient_data').dataset.formValues = JSON.stringify({
+        age: age, 
+        eye: eye, 
+        corneal_astigmatism: corneal_astigmatism, 
+        steep_axis: steep_axis
+    });
+
+    // Dynamically set the image source based on the selected eye (which triggers reload)
+    eye_img.src = eye === 'right' ? 'static/righteyetemplate.jpg' : 'static/lefteyetemplate.jpg';
+});
+
 // Canvas setup and image loading
 const canvas = document.getElementById('my_canvas');
 const ctx = canvas.getContext('2d');
 const eye_img = new Image();
 
+//Send data to back-end, wait for data to come back, and then use it to produce image and arcuates info for the user
 eye_img.onload = function() {
     let formValues = document.getElementById('patient_data').dataset.formValues;
     if (formValues) {
@@ -18,7 +40,7 @@ eye_img.onload = function() {
         })
         .then(response => response.json())
         .then(data => {
-            // Use the calculated value to render the image 
+            // Use the calculated value to render the image of the arcuate(s) on the eye
             renderImage(data, formValues.eye);
             // Use the calculated values to render the text underneath the canvas
             let arcuate1text = data.arcuate1text;
@@ -47,26 +69,26 @@ function renderImage(data, eye) {
     let arc2end = data.arc2end;
     if (eye == "left") {
         ctx.beginPath();
-        ctx.arc(1454/2, 999/2, 751/2, arc1start, arc1end); // x, y, radius, startAngle, endAngle
+        ctx.arc(1454/3, 999/3, 751/3, arc1start, arc1end); // x, y, radius, startAngle, endAngle
         ctx.strokeStyle = '#FFFF00'; // Yellow Line color
         ctx.lineWidth = 10; // Line width
         ctx.stroke();
         if (data.arc2start != null) {
             ctx.beginPath();
-            ctx.arc(1454/2, 999/2, 751/2, arc2start, arc2end); // x, y, radius, startAngle, endAngle
+            ctx.arc(1454/3, 999/3, 751/3, arc2start, arc2end); // x, y, radius, startAngle, endAngle
             ctx.strokeStyle = '#FFA500'; // Orange Line color
             ctx.lineWidth = 10; // Line width
             ctx.stroke();
         }
     } else if (eye === "right") {
         ctx.beginPath();
-        ctx.arc(1312/2, 1024/2, 751/2, arc1start, arc1end);
+        ctx.arc(1312/3, 1024/3, 751/3, arc1start, arc1end);
         ctx.strokeStyle = '#FFFF00'; // Yellow Line color
         ctx.lineWidth = 10; // Line width
         ctx.stroke();
         if (data.arc2start != null) {
             ctx.beginPath();
-            ctx.arc(1312/2, 1024/2, 751/2, arc2start, arc2end); // x, y, radius, startAngle, endAngle
+            ctx.arc(1312/3, 1024/3, 751/3, arc2start, arc2end); // x, y, radius, startAngle, endAngle
             ctx.strokeStyle = '#FFA500'; // Orange Line color
             ctx.lineWidth = 10; // Line width
             ctx.stroke();
@@ -75,23 +97,3 @@ function renderImage(data, eye) {
 }
 
 
-document.getElementById('patient_data').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Get values from the form
-    let age = document.getElementById('age').value;
-    let eye = document.querySelector('input[name="eye"]:checked').value;
-    let corneal_astigmatism = document.getElementById('corneal_astigmatism').value;
-    let steep_axis = document.getElementById('steep_axis').value;
-
-    // Store form values in the dataset for use when the image loads
-    document.getElementById('patient_data').dataset.formValues = JSON.stringify({
-        age: age, 
-        eye: eye, 
-        corneal_astigmatism: corneal_astigmatism, 
-        steep_axis: steep_axis
-    });
-
-    // Dynamically set the image source based on the selected eye (which triggers reload)
-    eye_img.src = eye === 'right' ? 'static/righteyetemplate.jpg' : 'static/lefteyetemplate.jpg';
-});

@@ -18,7 +18,7 @@ def after_request(response):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", current_page='home')
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
@@ -70,13 +70,13 @@ def calculate():
         arcuate1['arcuate_length'] = 20
         arcuate2['arcuate_length'] = 20
     elif 0.88 < corneal_astigmatism <= 1.1:
-        arcuate1['arcuate_length'] = 25
-        arcuate2['arcuate_length'] = 25
-    elif 1.1 < corneal_astigmatism <= 1.25:
         arcuate1['arcuate_length'] = 30
         arcuate2['arcuate_length'] = 30
-    elif corneal_astigmatism > 1.25:
-        return jsonify ({'error': 'Astigmatism must be below 1.25. Recommend toric IOL instead'}), 400
+    elif 1.1 < corneal_astigmatism <= 1.25:
+        arcuate1['arcuate_length'] = 35
+        arcuate2['arcuate_length'] = 35
+    elif corneal_astigmatism > 1.30:
+        return jsonify ({'error': 'Astigmatism must be below 1.30. Recommend toric IOL instead'}), 400
 
     
     #Increase total astigmatism length by 5 degrees if against-the-rule (ATR) asgtigmatism
@@ -137,4 +137,6 @@ def calculate():
     'arc2end': arc2end
     }), 200
 
-
+@app.route("/about")
+def about():
+    return render_template("about.html", current_page='about')

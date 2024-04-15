@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+    <head>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/static/bootswatch.css" rel="stylesheet">
+        <link href="/static/style.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="/static/derojasflavicon.png" rel="icon">
+        <title>De Rojas AI Calc: {% block title %}{% endblock %}</title>
+    </head>
+    <body class="background">
+        <nav class="navbar navbar-expand-md bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/static/derojaslogo.png" alt="De Rojas AI Calc" class="navbar-logo">
+                    De Rojas AI Calc
+                </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor04" aria-controls="navbarColor04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarColor04">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link {{ 'active' if current_page == 'home' else '' }}" href="/">Home
+                      <span class="visually-hidden">{{ '(current)' if current_page == 'home' else '' }}</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link {{ 'active' if current_page == 'about' else '' }}" href="/about">About
+                      <span class="visually-hidden">{{ '(current)' if current_page == 'about' else '' }}</span>
+                    </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Links</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="https://www.lricalculator.com/">J&J's LRI Calculator</a>
+                      <a class="dropdown-item" href="https://lricalc.com/">The Wörtz-Gupta™ LRI Calculator Formula</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="https://www.iolcalc.com/">AES Team Info</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+        <main class="container py-4 alignleft">
+          {%block main %}{%endblock%}
+        </main>
+    </body>
+  </html>

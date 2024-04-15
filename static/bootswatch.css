@@ -2085,6 +2085,8 @@ progress {
 }
 .form-label {
   margin-bottom: 0.5rem;
+  white-space: nowrap;
+  margin-right: 4px;
 }
 
 .col-form-label {
@@ -2115,7 +2117,10 @@ progress {
 
 .form-control {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 200px;
+  flex-grow: 1;
+  margin: 0 auto;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: 300;

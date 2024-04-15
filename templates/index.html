@@ -1,96 +1,58 @@
-<!DOCTYPE html>
-<html lang ="en">
-    <head>
-        <meta charset = "utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="/static/bootswatch.css" rel="stylesheet">
-        <link href="/static/style.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <title>De Rojas AI Calc</title>
-    </head>
-    <body>
-        <div class="main">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <img src="/static/derojaslogo.jpg" alt="De Rojas AI Calc" class="navbar-logo">
-                        De Rojas AI Calc
-                      </a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor04" aria-controls="navbarColor04" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarColor04">
-                    <ul class="navbar-nav me-auto">
-                      <li class="nav-item">
-                        <a class="nav-link active" href="#">Home
-                          <span class="visually-hidden">(current)</span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Links</a>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="https://www.lricalculator.com/">J&J's LRI Calculator</a>
-                          <a class="dropdown-item" href="https://lricalc.com/">The Wörtz-Gupta™ LRI Calculator Formula</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="https://www.iolcalc.com/">AES Team Info</a>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-            </nav>
-            <div class = "page-header text-center">    
-                <h1>De Rojas Arcuate Incision Calculator</h1>
-            </div>
+{% extends "layout.html" %}
 
-            <h4 class = "text-center">Please enter patient details and parameters below,<br>then click submit</h4>
-            <form id = "patient_data">
-                <div>
-                    <label for="ID">Patient ID:</label>
-                    <input type="text" id="ID" name="ID">
-                </div>
-                
-                <div>
-                    <label for="age">Age (in years):</label>
-                    <input type="number" id="age" name="age" min="1" max="150" step="1">
-                </div>
-                
-                <div>
-                    <label for="DOS">Date of Surgery:</label>
-                    <input type="date" id="DOS" name="DOS">
-                </div>
+{% block title %}
+  Calculate
+{% endblock %}
 
-                <div>
-                    <label for="right_eye">Right Eye</label>
-                    <input type="radio" id="right_eye" name="eye" value="right">
-                    <label for="left_eye">Left Eye</label>
-                    <input type="radio" id="left_eye" name="eye" value="left">
-                </div>
-                
-                <div>
-                    <label for="corneal_astigmatism">Corneal Astigmatism:</label>
-                    <input type="number" id="corneal_astigmatism" name="corneal_astigmatism" placeholder="amount" min="0.25" max="1.5" step="0.01">
-                </div>
+{% block main %}
+  <h1 class = "py-2">De Rojas Arcuate Incision Calculator</h1>
+  
+  <h4 class="py-2">Please enter case details below,<br>then click submit</h4>
+    <form id = "patient_data">
+      <div class = py-2>
+          <label for="ID">Patient ID:</label>
+          <input type="text" id="ID" name="ID" class="inputarea">
+      </div>
+      
+      <div class = py-2>
+          <label for="age">Age (in years):</label>
+          <input type="number" id="age" name="age" min="1" max="150" step="1" class="inputarea" required>
+      </div>
+      
+      <div class = py-2>
+          <label for="DOS">Date of Surgery:</label>
+          <input type="date" id="DOS" name="DOS" class="inputarea" required>
+      </div>
 
-                <div>
-                    <label for="steep_axis">Location of Steep Axis (in degrees):</label>
-                    <input type="number" id="steep_axis" name="steep_axis" placeholder="axis" min="0" max="360" step="1">
-                </div>
-                
-                <div>
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+      <div class = py-2>
+          <label for="right_eye">Right Eye</label>
+          <input type="radio" id="right_eye" name="eye" value="right" required>
+          <label for="left_eye">Left Eye</label>
+          <input type="radio" id="left_eye" name="eye" value="left" required>
+      </div>
+      
+      <div class = py-2>
+          <label for="corneal_astigmatism">Corneal Astigmatism:</label>
+          <input type="number" id="corneal_astigmatism" name="corneal_astigmatism" required placeholder="x.xx" min="0.25" max="1.5" step="0.01" class="inputarea">
+      </div>
 
-            <div id ="arcuate1_display" style="color: #FFFF00";></div>
-            <div id ="arcuate2_display" style="color: #FFA500";></div>
+      <div class = py-2>
+          <label for="steep_axis">Location of Steep Axis <br> (in degrees):</label>
+          <input type="number" id="steep_axis" name="steep_axis" placeholder="xxx" required min="0" max="360" step="1" class="inputarea">
+      </div>
+      
+      <div class = py-2>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </form>
 
-            <canvas id="my_canvas" width="1391.5" height="1025.5">Your browser does not support the canvas element.</canvas>
+  <div class = "text-block mt-sm-5">
+    <h5 id ="arcuate1_display" style="color: #FFFF00";></h5>
+    <h5 id ="arcuate2_display" style="color: #FFA500";></h5>
+  </div>
 
-            <script src="{{ url_for('static', filename='script.js') }}"></script>
-        </div>
-    </body>
-</html>
+  <canvas id="my_canvas" width="927.67" height="683.67" class = "my-sm-3" style = "border-radius: 8px !important;">Your browser does not support the canvas element.</canvas>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  
+{% endblock %}
