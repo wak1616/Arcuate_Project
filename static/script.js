@@ -1,3 +1,8 @@
+// Canvas setup and image loading (elements that are used globally)
+
+const canvas = document.getElementById('my_canvas');
+const ctx = canvas.getContext('2d');
+const eye_img = new Image();
 
 document.getElementById('patient_data').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -8,7 +13,7 @@ document.getElementById('patient_data').addEventListener('submit', function(e) {
     let corneal_astigmatism = document.getElementById('corneal_astigmatism').value;
     let steep_axis = document.getElementById('steep_axis').value;
 
-    // Store form values in the dataset for use when the image loads
+    // Store form values in the dataset for use when the image loads (a good way to persist data)
     document.getElementById('patient_data').dataset.formValues = JSON.stringify({
         age: age, 
         eye: eye, 
@@ -20,10 +25,6 @@ document.getElementById('patient_data').addEventListener('submit', function(e) {
     eye_img.src = eye === 'right' ? 'static/righteyetemplate.jpg' : 'static/lefteyetemplate.jpg';
 });
 
-// Canvas setup and image loading
-const canvas = document.getElementById('my_canvas');
-const ctx = canvas.getContext('2d');
-const eye_img = new Image();
 
 //Send data to back-end, wait for data to come back, and then use it to produce image and arcuates info for the user
 eye_img.onload = function() {
