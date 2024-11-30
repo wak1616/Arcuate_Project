@@ -13,6 +13,11 @@
           <label for="ID">Patient ID:</label>
           <input type="text" id="ID" name="ID" class="inputarea">
       </div>
+
+      <div class = py-2>
+        <label for="DOS">Date of Surgery:</label>
+        <input type="date" id="DOS" name="DOS" class="inputarea" required>
+      </div>
       
       <div class = py-2>
           <label for="age">Age (in years):</label>
@@ -20,27 +25,44 @@
       </div>
       
       <div class = py-2>
-          <label for="DOS">Date of Surgery:</label>
-          <input type="date" id="DOS" name="DOS" class="inputarea" required>
-      </div>
-
-      <div class = py-2>
-          <label for="right_eye">Right Eye</label>
-          <input type="radio" id="right_eye" name="eye" value="right" required>
+          <label for="OD">Right Eye</label>
+          <input type="radio" id="right_eye" name="eye" value="OD" required>
           <label for="left_eye">Left Eye</label>
-          <input type="radio" id="left_eye" name="eye" value="left" required>
+          <input type="radio" id="left_eye" name="eye" value="OS" required>
       </div>
       
       <div class = py-2>
-          <label for="corneal_astigmatism">Corneal Astigmatism:</label>
-          <input type="number" id="corneal_astigmatism" name="corneal_astigmatism" required placeholder="x.xx" min="0.25" max="1.5" step="0.01" class="inputarea">
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="sex" value="Female" required>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="sex" value="Male" required>
       </div>
 
       <div class = py-2>
-          <label for="steep_axis">Location of Steep Axis <br> (in degrees):</label>
-          <input type="number" id="steep_axis" name="steep_axis" placeholder="xxx" required min="0" max="360" step="1" class="inputarea">
+          <label for="cassini_corneal_astigmatism">Cassini Total Corneal Astigmatism <br> (in degrees):</label>
+          <input type="number" id="cassini_corneal_astigmatism" name="cassini_corneal_astigmatism" required placeholder="x.xx" min="0.0" max="1.5" step="0.01" class="inputarea">
       </div>
-      
+
+      <div class = py-2>
+        <label for="iolmaster_corneal_astigmatism">IOLMaster700 Total Corneal Astigmatism <br> (in degrees):</label>
+        <input type="number" id="iolmaster700_corneal_astigmatism" name="iolmaster700_corneal_astigmatism" required placeholder="x.xx" min="0.0" max="1.5" step="0.01" class="inputarea">
+      </div>
+
+      <div class = py-2>
+          <label for="steep_axis">Location of Steep Axis (total cornea)<br> (in degrees from 0 to 179):</label>
+          <input type="number" id="steep_axis" name="steep_axis" placeholder="xxx" required min="0" max="179" step="1" class="inputarea">
+      </div>
+
+      <div class = py-2>
+        <label for="Mean_K">Mean K from IOLMaster700<br> (in degrees):</label>
+        <input type="number" id="Mean_K" name="Mean_K" required placeholder="xx.xx" min="30.00" max="50.00" step="0.01" class="inputarea">
+    </div>
+
+      <div class = py-2>
+        <label for="WTW">White-to-White Diameter (from IOLMaster700) <br> (in mm):</label>
+        <input type="number" id="WTW" name="WTW" required placeholder="xx.x" min="11.0" max="14.0" step="0.1" class="inputarea">
+      </div>
+
       <div class = py-2>
           <button type="submit" class="btn btn-primary">Submit</button>
       </div>

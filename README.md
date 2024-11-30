@@ -1,6 +1,22 @@
 # De Rojas AI Calc
-#### Video Demo:  <[URL HERE](https://youtu.be/1WNCb5swXqw?si=JPf2HWXy9DbEge_M)>
-#### Description:
+
+## Setup
+1. Create virtual environment:   ```bash
+   python -m venv venv   ```
+
+2. Activate virtual environment:   ```bash
+   # Windows
+   venv\Scripts\activate
+   # macOS/Linux
+   source venv/bin/activate   ```
+
+3. Install dependencies:   ```bash
+   pip install -r requirements.txt   ```
+
+
+## Video Demo:  <[URL HERE](https://youtu.be/1WNCb5swXqw?si=JPf2HWXy9DbEge_M)>
+
+## Description:
 
 *What are arcuate incisions and why are they used?*
 

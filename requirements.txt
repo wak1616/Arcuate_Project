@@ -1,2 +1,6 @@
 Flask
 Flask-Session
+Pandas
+Numpy
+Xgboost
+Math
